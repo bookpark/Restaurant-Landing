@@ -28,3 +28,20 @@ class Menu(models.Model):
 
     def __str__(self):
         return f'메뉴 - [{self.menu.name}]'
+
+
+class Franchise(models.Model):
+    franchise_1 = models.ImageField(upload_to='franchise_1')
+    franchise_2 = models.ImageField(upload_to='franchise_2')
+    franchise_3 = models.ImageField(upload_to='franchise_3')
+    franchise_4 = models.ImageField(upload_to='franchise_4')
+
+    def __str__(self):
+        return f'가맹점 소개 - 이미지 네장'
+
+
+class FranchiseNotice(models.Model):
+    franchise_notice = models.ImageField(upload_to='franchise_notice')
+
+    def __str__(self):
+        return f'가맹 안내'
