@@ -20,11 +20,15 @@ secrets = json.loads(open(SECRETS_PATH).read())
 for key, value in secrets.items():
     setattr(sys.modules[__name__], key, value)
 
-DEBUG = True
+MEDIA_ROOT = os.path.join(ROOT_DIR, '.media')
+MEDIA_URL = '/media/'
+
+STATIC_URL = '/static/'
 
 ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
+    'images',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -43,7 +47,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'restaurant.urls'
+ROOT_URLCONF = 'config.urls'
 
 TEMPLATES = [
     {
@@ -61,7 +65,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'restaurant.wsgi.application'
+WSGI_APPLICATION = 'config.wsgi.application'
 
 DATABASES = {
     'default': {
@@ -87,7 +91,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = 'ko-kr'
 
-TIME_ZONE = 'KR'
+TIME_ZONE = 'Asia/Seoul'
 
 USE_I18N = True
 
@@ -95,4 +99,4 @@ USE_L10N = True
 
 USE_TZ = True
 
-STATIC_URL = '/static/'
+DEBUG = True
